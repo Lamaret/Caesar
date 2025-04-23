@@ -7,5 +7,6 @@ public enum CommandType {
 
     public static CommandType fromStr(String value){
         return CommandType.valueOf(value.toUpperCase());
+
     }
 }
