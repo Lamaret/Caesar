@@ -32,21 +32,20 @@ public class Runner {
         isFileExist(path);
 
         String content = getFileContent(path);
+        int key = 0;
         if (commandType != BRUTE_FORCE) {
-
+            key = Integer.parseInt(args[KEY_ARG_POSITION]);
         }
-
-        int key = Integer.parseInt(args[KEY_ARG_POSITION]);
         Map<CommandType, CaesarCipherAction> operations = Map.of(ENCRYPT, new EncryptionAction(key),
                 DECRYPT, new DecryptionAction(key),
                 BRUTE_FORCE, new BruteForceAction());
 
         String newContent = operations.get(commandType).execute(content);
-        Path newPath =Path.of(newName(commandType,filePath));
+        Path newPath = Path.of(newName(commandType, filePath));
         try {
             Files.createFile(newPath);
-            Files.writeString(newPath,newContent);
-        }catch (IOException e){
+            Files.writeString(newPath, newContent);
+        } catch (IOException e) {
             throw new WrongFilePathException("Can`t write file");
         }
     }
@@ -67,6 +66,6 @@ public class Runner {
 
     private String newName(CommandType commandType, String name) {
         int indexPoint = name.lastIndexOf(".");
-        return name.substring(0, indexPoint) + "["+commandType.toString()+"]"+name.substring(indexPoint);
+        return name.substring(0, indexPoint) + "[" + commandType.toString() + "]" + name.substring(indexPoint);
     }
 }

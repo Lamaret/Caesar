@@ -1,11 +1,16 @@
 package Project.Cipher;
 
-public class BruteForceAction extends CaesarCipherAction{
-    private final CaesarCipher cipher=new CaesarCipher();
+
+import Project.CommandType;
+
+public class BruteForceAction extends CaesarCipherAction {
+    private final CaesarCipher cipher = new CaesarCipher();
 
     @Override
     public String execute(String text) {
-        cipher.shiftText(text,1);
-        return super.execute(text);
+        return cipher.shiftText(text, 1, CommandType.BRUTE_FORCE);
+
     }
 }
+
+
