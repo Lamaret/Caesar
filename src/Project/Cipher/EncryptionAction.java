@@ -5,7 +5,6 @@ import Project.CommandType;
 public class EncryptionAction extends CaesarCipherAction {
     private final int key;
     private final CaesarCipher cipher = new CaesarCipher();
-
     public EncryptionAction(int key) {
         this.key = key;
     }

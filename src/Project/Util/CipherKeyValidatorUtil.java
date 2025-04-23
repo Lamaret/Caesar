@@ -12,5 +12,6 @@ public class CipherKeyValidatorUtil {
         } else {
             return CommandType.fromStr(commandStr);
         }
+
     }
 }

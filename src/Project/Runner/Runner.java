@@ -63,7 +63,6 @@ public class Runner {
             throw new InvalidFileContentException("InvalidFileContentException");
         }
     }
-
     private String newName(CommandType commandType, String name) {
         int indexPoint = name.lastIndexOf(".");
         return name.substring(0, indexPoint) + "[" + commandType.toString() + "]" + name.substring(indexPoint);

@@ -9,7 +9,6 @@ public class BruteForceAction extends CaesarCipherAction {
     @Override
     public String execute(String text) {
         return cipher.shiftText(text, 1, CommandType.BRUTE_FORCE);
-
     }
 }
 
